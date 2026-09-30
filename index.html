@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>ClipBackup</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <!-- 顶部标题 -->
+    <header>
+      <div class="header-left">
+        <h1><i class="fa-solid fa-clipboard-list"></i> ClipBackup</h1>
+        <p id="syncStatus" class="sync-hint"><i class="fa-solid fa-cloud"></i> 已同步</p>
+      </div>
+      <div class="header-right">
+        <button id="syncBtn" class="icon-btn" title="同步">
+          <i class="fa-solid fa-rotate"></i>
+        </button>
+        <button id="clearBtn" class="icon-btn danger" title="清空">
+          <i class="fa-solid fa-trash-can"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- 搜索栏 -->
+    <div class="search-bar">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" id="searchInput" placeholder="搜索剪贴板历史..." />
+    </div>
+
+    <!-- 统计 -->
+    <div class="stats">
+      <div class="stat-item">
+        <span class="stat-num" id="totalCount">0</span>
+        <span class="stat-label">条记录</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" id="storageSize">0 KB</span>
+        <span class="stat-label">存储</span>
+      </div>
+    </div>
+
+    <!-- 列表 -->
+    <div class="list-container">
+      <div id="list" class="clip-list"></div>
+      <div id="empty" class="empty-state">
+        <i class="fa-solid fa-clipboard"></i>
+        <p>暂无记录</p>
+        <p class="empty-hint">点击下方按钮添加第一条记录</p>
+      </div>
+    </div>
+
+    <!-- 底部操作栏 -->
+    <div class="bottom-bar">
+      <button id="pasteBtn" class="action-btn primary">
+        <i class="fa-solid fa-paste"></i> 粘贴当前
+      </button>
+      <button id="backupBtn" class="action-btn secondary">
+        <i class="fa-solid fa-cloud-arrow-up"></i> 云备份
+      </button>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="toast"></div>
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
